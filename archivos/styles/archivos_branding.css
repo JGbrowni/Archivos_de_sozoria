@@ -938,7 +938,7 @@ html, body {
     width:100vw; height:100vh;
     padding:110px 0 30px;
     border-left:none;
-    border-bottom:1px solid rgba(247,230,66,0.2);  /* ← NEÓN AMARILLO */
+    border-bottom:1px solid rgba(247, 169, 66, 0.2);  /* ← NEÓN AMARILLO */
     transition:top 0.42s cubic-bezier(0.25,0.46,0.45,0.94);
   }
   .side-menu.active { top:0; right:0; }
