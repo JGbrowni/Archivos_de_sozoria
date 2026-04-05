@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ilustraciones | Sozoria</title><!-- ← CAMBIA EL TÍTULO DE LA PESTAÑA -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Lightbox (mantén tu ruta existente) -->
+  <link rel="stylesheet" href="../lightbox.css">
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <!-- Audiowide: tipografía del título neón -->
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
+  <!-- CSS de la sección -->
+  <link rel="stylesheet" href="styles/ilustraciones.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       OVERLAY DE ORIENTACIÓN HORIZONTAL (igual que ilustracion.html)
+  ============================================================ -->
+  <div class="orientation-overlay" id="orientationOverlay">
+    <div class="device-icon">
+      <div class="phone-container"><div class="phone"></div></div>
+    </div>
+    <div class="orientation-message pulse">
+      Para tener una mejor experiencia es recomendable verla en vertical por el dispositivo en que se encuentra.
+    </div>
+    <div class="rotate-indicator">
+      Gira tu dispositivo <span class="arrow-rotate">↻</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MENÚ HAMBURGUESA ESPACIAL (misma estructura que ilustracion.html)
+  ============================================================ -->
+  <div class="container-fluid menu">
+
+    <!-- Botón hamburguesa -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+
+    <!-- Overlay oscuro -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Menú lateral -->
+    <nav class="side-menu" id="sideMenu" aria-label="Navegación principal">
+
+      <!-- Header del menú con temática espacial -->
+
+      <!-- Sección: Ilustración -->
+ <!-- ★ BOTÓN: Regresar al inicio de la página (coloca tu URL aquí) -->
+      <a href="../index_archivos.html" class="menu-item menu-item-special" id="menuHome"><!-- ← URL DE TU PÁGINA DE INICIO -->
+        <i class="fa fa-home"></i> Inicio
+      </a>
+
+      <!-- ★ BOTÓN: Regresar a Sozoria -->
+      <a href="#" class="menu-item menu-item-special" id="regresarSozoria">
+        <i class="fa fa-rocket"></i>Regresar Sozoria
+      </a>
+
+    <div class="menu-divider"></div>
+
+      <a href="ilustracion.html" class="menu-item"><!-- ← URL sección Ilustración -->
+        <i class="fa fa-paint-brush"></i> Ilustración
+      </a>
+
+      <!-- Sección: Branding -->
+      <a href="branding.html" class="menu-item"><!-- ← URL sección Branding -->
+        <i class="fa fa-book"></i> Branding
+      </a>
+
+      <!-- Sección: Multimedia -->
+      <a href="multimedia.html" class="menu-item"><!-- ← URL sección Multimedia -->
+        <i class="fa fa-film"></i> Multimedia
+      </a>
+
+      <!-- Sección: Web -->
+      <a href="web.html" class="menu-item"><!-- ← URL sección Web -->
+        <i class="fa fa-code"></i> Web
+      </a>
+
+     
+
+    </nav>
+
+    <!-- Lightbox de confirmación -->
+    <div class="confirm-lightbox" id="confirmLightbox" aria-hidden="true">
+      <div class="confirm-card">
+        <h2>¿Estás seguro de regresar?</h2>
+        <p>Serás llevado a la página principal de Sozoria.</p>
+        <div class="confirm-actions">
+          <button class="btn btn-danger" id="confirmYes">Sí, regresar</button>
+          <button class="btn btn-secondary" id="confirmNo">No, quedarme</button>
+        </div>
+      </div>
+      <div class="space-animation"></div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       FONDO ESPACIAL FIJO — se mantiene al hacer scroll (parallax)
+  ============================================================ -->
+  <div class="desktop-design">
+
+    <!-- Nebulosa de página -->
+    <div class="page-nebula"></div>
+
+    <!-- Campo de estrellas animadas (igual que archivos_ilustraciones.html) -->
+    <div class="bg-animation">
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      <div id="stars4"></div>
+    </div>
+
+    <!-- ============================================================
+         CONTENIDO PRINCIPAL — scrolleable sobre el fondo fijo
+    ============================================================ -->
+    <div class="page-content" id="pageContent">
+
+      <!-- ─── SECCIÓN DE TRABAJOS ──────────────────────────── -->
+      <section id="characters" class="works-section">
+        <div class="container-lg px-3 px-md-4">
+
+          <!-- Título neón con Audiowide -->
+          <!-- ★ NEÓN AMARILLO: clase .neon-title usa font Audiowide + glow amarillo -->
+          <div class="section-neon-title">
+            <h2 class="neon-title">Ilustraciones</h2><!-- ← CAMBIA EL NOMBRE DE LA SECCIÓN -->
+            <!--<p class="neon-subtitle">Trabajos digitales</p><!-- ← CAMBIA O BORRA ESTE SUBTÍTULO -->
+            <span class="neon-line"></span><!-- línea decorativa neón amarillo -->
+          </div>
+
+          <!-- Instrucción -->
+          <p class="instruccion-imagenes">✦ Toca las imágenes para expandir el contenido ✦</p>
+
+          <!-- ─────────────────────────────────────────────────────────────
+               GRID DE CARDS — character-card con temática cósmica
+               RESPONSIVO:
+                 col-6      → 2 por fila en MÓVIL
+                 col-md-4   → 3 por fila en TABLET (≥768px)
+                 col-xl-3   → 4 por fila en PC/LAPTOP (≥1200px)
+
+               CÓMO AGREGAR MÁS CARDS: copia el bloque de una card
+               y cambia: href (img full), src (preview), data-title y h3
+          ──────────────────────────────────────────────────────────────── -->
+          <div class="row g-3 g-md-4 works-grid">
+
+            <!-- ══ CARD 1 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <!-- data-lightbox y data-title son para tu lightbox existente — no los modifiques -->
+                  <a href="../imgs/trabajos_imgs/i3.png" data-lightbox="models" data-title="Ilustrado en 2025 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/p3.png" alt="Stich salvadoreño" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Stich salvadoreño</h3>
+                  <p class="card-year">2025 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 2 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/i5.png" data-lightbox="models" data-title="Ilustrado en 2024 en colaboracion con @ilucy_c en IbispaintX">
+                    <img src="../imgs/trabajos_imgs/i5.png" alt="Nevadas terroríficas" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Nevadas terroríficas</h3>
+                  <p class="card-year">2024 · IbispaintX</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 3 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/i9.png" data-lightbox="models" data-title="Ilustrado en 2024 en colaboracion con @ilucy_c en IbispaintX">
+                    <img src="../imgs/trabajos_imgs/i9.png" alt="Nevadas navideñas" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Nevadas navideñas</h3>
+                  <p class="card-year">2024 · IbispaintX</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 4 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/i12.png" data-lightbox="models" data-title="Ilustrado en 2024 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/p12.png" alt="Fantasma color" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Fantasma color</h3>
+                  <p class="card-year">2024 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 5 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/smile.png" data-lightbox="models" data-title="Ilustrado en 2024 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/smile.png" alt="No te preocupes, sé feliz" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">No te preocupes, sé feliz</h3>
+                  <p class="card-year">2024 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 6 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/i1.png" data-lightbox="models" data-title="Ilustrado en 2024 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/p1.png" alt="Lady Deadpool" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Lady Deadpool</h3>
+                  <p class="card-year">2024 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 7 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/i11.png" data-lightbox="models" data-title="Ilustrado en 2025 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/p11.png" alt="Demon b days" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Demon b days</h3>
+                  <p class="card-year">2025 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 8 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/caesars.png" data-lightbox="models" data-title="Ilustrado en 2026 en IbispaintX">
+                    <img src="../imgs/trabajos_imgs/p9.png" alt="Pizza Pizza!" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Pizza Pizza!</h3>
+                  <p class="card-year">2026 · IbispaintX</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 9 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/i7.png" data-lightbox="models" data-title="Ilustrado en 2024 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/i7.png" alt="Brown Kujo" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Brown Kujo</h3>
+                  <p class="card-year">2024 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 10 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/ghost.png" data-lightbox="models" data-title="Ilustrado en 2025 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/ghostp1.png" alt="GhostBrown y Boinstor" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">GhostBrown y Boinstor</h3>
+                  <p class="card-year">2025 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 11 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/alastor.png" data-lightbox="models" data-title="Ilustrado en 2024 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/alastor.png" alt="Alastor y Niffty" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Alastor y Niffty</h3>
+                  <p class="card-year">2024 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 12 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/colorchallenge.png" data-lightbox="models" data-title="Ilustrado en 2023 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/colorchallenge.png" alt="Círculo cromático challenge" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Círculo cromático challenge</h3>
+                  <p class="card-year">2023 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 13 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/goldship.png" data-lightbox="models" data-title="Ilustrado en 2026 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/p10.png" alt="Año de goldship" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Año de goldship</h3>
+                  <p class="card-year">2026 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 14 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/goodbunny.png" data-lightbox="models" data-title="Ilustrado en 2026 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/p14.png" alt="DeBi CoMpRaR MaS SeMiTa" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">DeBi CoMpRaR MaS SeMiTa</h3>
+                  <p class="card-year">2026 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ══ CARD 15 ══ -->
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/adventure.png" data-lightbox="models" data-title="Ilustrado en 2026 en ClipStudioPaint">
+                    <img src="../imgs/trabajos_imgs/p15.png" alt="Finn y Maga cazadora" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Finn y Maga cazadora</h3>
+                  <p class="card-year">2026 · ClipStudioPaint</p>
+                </div>
+              </div>
+            </div>
+
+            <!--
+            ══════════════════════════════════════════════════════
+            AGREGAR MÁS CARDS — copia este bloque:
+
+            <div class="col-6 col-md-4 col-xl-3">
+              <div class="character-card">
+                <div class="card-img-wrapper">
+                  <a href="../imgs/trabajos_imgs/IMAGEN-FULL.png" data-lightbox="models" data-title="Descripción del trabajo">
+                    <img src="../imgs/trabajos_imgs/IMAGEN-PREVIEW.png" alt="Nombre del trabajo" class="img-fluid" />
+                    <div class="card-hover-overlay"></div>
+                  </a>
+                </div>
+                <div class="card-info p-3">
+                  <h3 class="h4 fw-bold">Nombre del trabajo</h3>
+                  <p class="card-year">AÑO · Herramienta</p>
+                </div>
+              </div>
+            </div>
+            ══════════════════════════════════════════════════════
+            -->
+
+          </div><!-- /works-grid -->
+        </div><!-- /container -->
+      </section>
+
+    </div><!-- /page-content -->
+  </div><!-- /desktop-design -->
+
+  <!-- ============================================================
+       FOOTER (igual que los otros archivos del proyecto)
+  ============================================================ -->
+  <footer class="footer-sozoria">
+    <div class="footer-content">
+      <div class="footer-left">
+        <p>&copy; 2025 - <span id="current-year">2026</span> Osobrowni &amp; Browni. Marca, personajes y contenidos creados por Oscar Flores</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://instagram.com/osobrowni" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://x.com/osobrowni" target="_blank" aria-label="X"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.youtube.com/@Osobrowni" target="_blank" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.behance.net/browni_designer" target="_blank" aria-label="Behance"><i class="fa fa-behance"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JS de la sección -->
+  <script src="javascript/ilustraciones.js"></script>
+  <!-- Lightbox (mantén tu ruta existente) -->
+  <script src="../lightbox-plus-jquery.js"></script>
+
+</body>
+</html>

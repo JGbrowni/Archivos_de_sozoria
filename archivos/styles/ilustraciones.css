@@ -1,0 +1,976 @@
+/* ============================================================
+   ilustraciones.css — Plantilla galerías Sozoria
+   Basado en archivos_ilustraciones.html + ilustracion.css
+   ============================================================ */
+
+/* ─── Fuentes Poppins (clases de utilidad) ────────────────── */
+.poppins-thin        { font-family:"Poppins",sans-serif; font-weight:100; font-style:normal; }
+.poppins-light       { font-family:"Poppins",sans-serif; font-weight:300; font-style:normal; }
+.poppins-regular     { font-family:"Poppins",sans-serif; font-weight:400; font-style:normal; }
+.poppins-medium      { font-family:"Poppins",sans-serif; font-weight:500; font-style:normal; }
+.poppins-semibold    { font-family:"Poppins",sans-serif; font-weight:600; font-style:normal; }
+.poppins-bold        { font-family:"Poppins",sans-serif; font-weight:700; font-style:normal; }
+.poppins-extrabold   { font-family:"Poppins",sans-serif; font-weight:800; font-style:normal; }
+.poppins-black       { font-family:"Poppins",sans-serif; font-weight:900; font-style:normal; }
+
+/* ============================================================
+   RESET Y BASE
+============================================================ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background-color: #120d05;
+  width: 100%;
+}
+
+/* ============================================================
+   BLOQUEO ORIENTACIÓN HORIZONTAL EN MÓVILES
+============================================================ */
+@media screen and (max-width:1024px) and (orientation:landscape) {
+  .desktop-design      { display:none; }
+  footer               { display:none; }
+  .menu                { display:none; }
+  .orientation-overlay { display:flex !important; }
+}
+
+/* ============================================================
+   FONDO ESPACIAL — position:fixed para que NO se mueva
+   El contenido scrollea ENCIMA de él (efecto parallax real)
+============================================================ */
+.desktop-design {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Nebulosa de color decorativa */
+.page-nebula {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 40%, rgba(180, 140, 20, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 60% at 85% 65%, rgba(200, 146, 20, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50%  5%, rgba(231, 183, 60, 0.08) 0%, transparent 40%);
+  animation: nebulaPulse 8s ease-in-out infinite;
+}
+@keyframes nebulaPulse {
+  0%,100% { opacity:0.7; transform:scale(1);    }
+  50%      { opacity:1;   transform:scale(1.03); }
+}
+
+/* ─── Campo de estrellas animadas ────────────────────────── */
+.bg-animation {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Capa 2px */
+#stars2 {
+  width: 2px; height: 2px;
+  background: transparent;
+  box-shadow:
+    1117px 1306px rgba(255,255,255,0.75), 1078px 1783px rgba(255,255,255,0.75),
+    1179px 1085px rgba(255,255,255,0.75), 1145px  920px rgba(255,255,255,0.75),
+     422px 1233px rgba(255,255,255,0.75),  387px   98px rgba(255,255,255,0.75),
+    1153px  637px rgba(255,255,255,0.75), 1084px  782px rgba(255,255,255,0.75),
+     476px  453px rgba(255,255,255,0.75),  926px 1306px rgba(255,255,255,0.75),
+      60px 1086px rgba(255,255,255,0.75),  753px 1575px rgba(255,255,255,0.75),
+     272px 1684px rgba(255,255,255,0.75), 1285px  750px rgba(255,255,255,0.75),
+    1416px 1327px rgba(255,255,255,0.75), 1931px  473px rgba(255,255,255,0.75),
+     736px 1395px rgba(255,255,255,0.75), 1816px  763px rgba(255,255,255,0.75),
+     438px  879px rgba(255,255,255,0.75),  665px 1902px rgba(255,255,255,0.75),
+    1341px  677px rgba(255,255,255,0.75), 1404px 1073px rgba(255,255,255,0.75),
+     100px  597px rgba(255,255,255,0.75),  357px 1689px rgba(255,255,255,0.75),
+    1044px 1342px rgba(255,255,255,0.75), 1954px  502px rgba(255,255,255,0.75),
+    1192px 1308px rgba(255,255,255,0.75),  540px 1239px rgba(255,255,255,0.75),
+    1360px  552px rgba(255,255,255,0.75),   89px  752px rgba(255,255,255,0.75),
+     659px 1253px rgba(255,255,255,0.75),   62px  517px rgba(255,255,255,0.75),
+    1375px 1705px rgba(255,255,255,0.75), 1343px 1511px rgba(255,255,255,0.75),
+    1659px 1922px rgba(255,255,255,0.75), 1560px  289px rgba(255,255,255,0.75),
+    1362px 1799px rgba(255,255,255,0.75), 1886px 1480px rgba(255,255,255,0.75),
+    1718px 1885px rgba(255,255,255,0.75),  824px  738px rgba(255,255,255,0.75),
+    1060px 1370px rgba(255,255,255,0.75), 1781px 1171px rgba(255,255,255,0.75),
+     255px  273px rgba(255,255,255,0.75), 1197px  120px rgba(255,255,255,0.75),
+     213px    7px rgba(255,255,255,0.75), 1226px 1920px rgba(255,255,255,0.75),
+    1844px  207px rgba(255,255,255,0.75), 1675px  970px rgba(255,255,255,0.75),
+    1435px 1283px rgba(255,255,255,0.75),   37px  353px rgba(255,255,255,0.75),
+      59px  417px rgba(255,255,255,0.75),  921px 1602px rgba(255,255,255,0.75),
+    1549px 1490px rgba(255,255,255,0.75),  638px 1845px rgba(255,255,255,0.75),
+    1328px  198px rgba(255,255,255,0.75), 1050px 1149px rgba(255,255,255,0.75),
+    1884px  711px rgba(255,255,255,0.75),  333px  263px rgba(255,255,255,0.75),
+     342px 1508px rgba(255,255,255,0.75), 1388px 1810px rgba(255,255,255,0.75),
+    1377px 1558px rgba(255,255,255,0.75),  890px  487px rgba(255,255,255,0.75),
+    1081px  759px rgba(255,255,255,0.75),  890px 1515px rgba(255,255,255,0.75),
+     911px 1284px rgba(255,255,255,0.75),  335px  735px rgba(255,255,255,0.75),
+    1140px  549px rgba(255,255,255,0.75), 1239px 1064px rgba(255,255,255,0.75),
+     226px   71px rgba(255,255,255,0.75), 1100px 1278px rgba(255,255,255,0.75),
+    1851px 1805px rgba(255,255,255,0.75), 1370px 1999px rgba(255,255,255,0.75),
+    1008px 1122px rgba(255,255,255,0.75),  785px  813px rgba(255,255,255,0.75),
+    1358px  601px rgba(255,255,255,0.75), 1833px 1305px rgba(255,255,255,0.75),
+    1303px  532px rgba(255,255,255,0.75),  860px  598px rgba(255,255,255,0.75),
+    1329px  593px rgba(255,255,255,0.75), 1038px 1088px rgba(255,255,255,0.75),
+     408px  405px rgba(255,255,255,0.75),  965px   82px rgba(255,255,255,0.75),
+    1483px 1438px rgba(255,255,255,0.75),  310px 1479px rgba(255,255,255,0.75),
+    1786px 1500px rgba(255,255,255,0.75), 1866px  852px rgba(255,255,255,0.75),
+      18px 1757px rgba(255,255,255,0.75), 1473px 1004px rgba(255,255,255,0.75),
+     633px 1970px rgba(255,255,255,0.75), 1334px 1713px rgba(255,255,255,0.75),
+     175px   28px rgba(255,255,255,0.75),  592px  894px rgba(255,255,255,0.75),
+     121px 1162px rgba(255,255,255,0.75), 1601px 1567px rgba(255,255,255,0.75),
+    1095px  657px rgba(255,255,255,0.75),  640px 1233px rgba(255,255,255,0.75),
+    1073px 1255px rgba(255,255,255,0.75),  840px 1087px rgba(255,255,255,0.75),
+     718px  250px rgba(255,255,255,0.75),  967px  709px rgba(255,255,255,0.75),
+     731px  239px rgba(255,255,255,0.75), 1623px  593px rgba(255,255,255,0.75);
+  animation: animStar 100s linear infinite, twinkleA 4.5s ease-in-out infinite;
+}
+#stars2::after {
+  content:" "; position:absolute; top:2000px;
+  width:2px; height:2px; background:transparent; box-shadow:inherit;
+}
+
+/* Capa 3px */
+#stars3 {
+  width: 3px; height: 3px;
+  background: transparent;
+  box-shadow:
+     940px 1360px rgba(255,255,255,0.9), 1071px  539px rgba(255,255,255,0.9),
+    1710px 1414px rgba(255,255,255,0.9),  836px  299px rgba(255,255,255,0.9),
+    1944px 1420px rgba(255,255,255,0.9),  253px 1449px rgba(255,255,255,0.9),
+    1257px 1250px rgba(255,255,255,0.9), 1588px 1830px rgba(255,255,255,0.9),
+    1077px 1204px rgba(255,255,255,0.9),  273px 1081px rgba(255,255,255,0.9),
+    1993px  766px rgba(255,255,255,0.9), 1808px  479px rgba(255,255,255,0.9),
+     917px  263px rgba(255,255,255,0.9),  663px 1820px rgba(255,255,255,0.9),
+     342px 1988px rgba(255,255,255,0.9),  727px 1250px rgba(255,255,255,0.9),
+     636px 1666px rgba(255,255,255,0.9),  692px 1112px rgba(255,255,255,0.9),
+     248px 1211px rgba(255,255,255,0.9), 1422px 1121px rgba(255,255,255,0.9),
+     881px   46px rgba(255,255,255,0.9), 1531px 1977px rgba(255,255,255,0.9),
+    1643px 1023px rgba(255,255,255,0.9),  684px 1071px rgba(255,255,255,0.9),
+    1142px 1873px rgba(255,255,255,0.9),  292px 1313px rgba(255,255,255,0.9),
+     256px 1237px rgba(255,255,255,0.9),   89px  912px rgba(255,255,255,0.9),
+     964px 1783px rgba(255,255,255,0.9),  877px  760px rgba(255,255,255,0.9),
+    1641px 1474px rgba(255,255,255,0.9), 1492px   24px rgba(255,255,255,0.9),
+    1776px 1642px rgba(255,255,255,0.9),  183px  602px rgba(255,255,255,0.9),
+    1998px   62px rgba(255,255,255,0.9), 1560px  367px rgba(255,255,255,0.9),
+    1333px  995px rgba(255,255,255,0.9),  704px 1815px rgba(255,255,255,0.9),
+    1809px  712px rgba(255,255,255,0.9), 1503px  288px rgba(255,255,255,0.9),
+     630px  556px rgba(255,255,255,0.9), 1715px  125px rgba(255,255,255,0.9),
+     353px 1878px rgba(255,255,255,0.9),  975px  333px rgba(255,255,255,0.9),
+    1740px 1409px rgba(255,255,255,0.9), 1341px 1871px rgba(255,255,255,0.9),
+    1279px 1064px rgba(255,255,255,0.9),  169px  874px rgba(255,255,255,0.9),
+     161px  528px rgba(255,255,255,0.9), 1671px 1669px rgba(255,255,255,0.9),
+     169px  632px rgba(255,255,255,0.9),  547px 1724px rgba(255,255,255,0.9),
+    1904px  110px rgba(255,255,255,0.9),  679px 1670px rgba(255,255,255,0.9),
+     196px  123px rgba(255,255,255,0.9),  786px  871px rgba(255,255,255,0.9),
+    1840px  324px rgba(255,255,255,0.9),  356px  967px rgba(255,255,255,0.9),
+      61px  549px rgba(255,255,255,0.9),   99px  677px rgba(255,255,255,0.9),
+    1719px   87px rgba(255,255,255,0.9), 1713px 1990px rgba(255,255,255,0.9),
+    1717px 1358px rgba(255,255,255,0.9),  108px 1187px rgba(255,255,255,0.9),
+      51px  869px rgba(255,255,255,0.9), 1461px  902px rgba(255,255,255,0.9),
+    1034px  891px rgba(255,255,255,0.9),  962px 1881px rgba(255,255,255,0.9),
+    1723px  595px rgba(255,255,255,0.9),  479px  901px rgba(255,255,255,0.9),
+    1546px 1823px rgba(255,255,255,0.9),  285px 1208px rgba(255,255,255,0.9),
+    1056px  347px rgba(255,255,255,0.9),  261px  988px rgba(255,255,255,0.9),
+     466px  990px rgba(255,255,255,0.9), 1657px  648px rgba(255,255,255,0.9),
+    1249px  933px rgba(255,255,255,0.9), 1552px 1555px rgba(255,255,255,0.9),
+     147px   62px rgba(255,255,255,0.9),  292px 1157px rgba(255,255,255,0.9),
+    1816px  423px rgba(255,255,255,0.9), 1714px  757px rgba(255,255,255,0.9),
+    1036px  961px rgba(255,255,255,0.9), 1955px  710px rgba(255,255,255,0.9),
+    1842px  516px rgba(255,255,255,0.9),  479px 1870px rgba(255,255,255,0.9),
+    1579px 1445px rgba(255,255,255,0.9), 1225px 1309px rgba(255,255,255,0.9),
+    1965px  566px rgba(255,255,255,0.9), 1575px 1072px rgba(255,255,255,0.9),
+     923px  329px rgba(255,255,255,0.9),  651px 1514px rgba(255,255,255,0.9),
+     865px 1100px rgba(255,255,255,0.9),  782px 1873px rgba(255,255,255,0.9),
+     115px  299px rgba(255,255,255,0.9),   14px 1668px rgba(255,255,255,0.9),
+    1666px 1817px rgba(255,255,255,0.9), 1096px 1068px rgba(255,255,255,0.9),
+    1462px  742px rgba(255,255,255,0.9), 1384px 1750px rgba(255,255,255,0.9);
+  animation: animStar 150s linear infinite, twinkleB 3s ease-in-out infinite;
+}
+#stars3::after {
+  content:" "; position:absolute; top:2000px;
+  width:3px; height:3px; background:transparent; box-shadow:inherit;
+}
+
+/* Capa 1px extra con parpadeo */
+#stars4 {
+  width: 1px; height: 1px;
+  background: transparent;
+  box-shadow:
+     120px  340px #fff,  580px  870px #fff,  945px  227px #fff,
+    1350px  740px #fff,  230px 1450px #fff,  760px  130px #fff,
+    1620px  990px #fff,   80px  680px #fff,  440px 1260px #fff,
+    1890px  410px #fff,  310px  550px #fff, 1100px 1780px #fff,
+     670px  390px #fff, 1430px 1120px #fff,  200px  910px #fff,
+    1760px 1540px #fff,  530px 1680px #fff,  990px   60px #fff,
+    1230px  480px #fff,   50px 1330px #fff,  820px 1960px #fff,
+    1500px  270px #fff,  370px  750px #fff, 1070px 1430px #fff,
+     640px 1810px #fff, 1940px  820px #fff,  170px  200px #fff,
+    1300px 1600px #fff,  710px  560px #fff, 1150px  990px #fff;
+  animation: animStar 200s linear infinite, twinkleC 5s ease-in-out infinite;
+}
+#stars4::after {
+  content:" "; position:absolute; top:2000px;
+  width:1px; height:1px; background:transparent; box-shadow:inherit;
+}
+
+/* Keyframes estrellas */
+@keyframes animStar  { from{transform:translateY(0)} to{transform:translateY(-2000px)} }
+@keyframes twinkleA  { 0%,100%{opacity:0.6} 50%{opacity:1} }
+@keyframes twinkleB  { 0%,100%{opacity:0.7} 50%{opacity:1} }
+@keyframes twinkleC  { 0%,100%{opacity:0.3} 50%{opacity:0.9} }
+
+/* ============================================================
+   PARALLAX — contenido scrollea, fondo se queda fijo
+   .bg-animation y .page-nebula son position:fixed
+   .page-content es position:relative z-index:1
+============================================================ */
+.page-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 30px;
+  padding-bottom: 80px;
+}
+
+/* ============================================================
+   MENÚ HAMBURGUESA — idéntico a ilustracion.css + neón amarillo
+============================================================ */
+.menu { position:relative; z-index:1001; }
+
+/* Botón */
+.menu-toggle {
+  position: fixed;
+  top: 20px; right: 20px;
+  z-index: 1002;
+  /* ★ NEÓN AMARILLO — fondo y borde del botón hamburguesa */
+  background: rgba(247,230,66,0.12);               /* ← NEÓN AMARILLO */
+  border: 2px solid rgba(247,230,66,0.8);           /* ← BORDE NEÓN AMARILLO */
+  border-radius: 50%;
+  width: 60px; height: 60px;
+  cursor: pointer;
+  display: flex; align-items:center; justify-content:center;
+  /* ★ NEÓN AMARILLO — glow del botón */
+  box-shadow: 0 0 14px rgba(247,230,66,0.5), inset 0 0 14px rgba(247,230,66,0.08); /* ← GLOW AMARILLO */
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.menu-toggle:hover {
+  background: rgba(247,230,66,0.22);
+  box-shadow: 0 0 28px rgba(247,230,66,0.75), inset 0 0 20px rgba(247,230,66,0.15); /* ← GLOW AMARILLO */
+  transform: scale(1.08);
+}
+
+/* Líneas hamburger */
+.hamburger { width:25px; height:20px; position:relative; }
+.hamburger span {
+  display:block; position:absolute;
+  height:3px; width:100%;
+  /* ★ NEÓN AMARILLO — color de las rayas del menú */
+  background: #f7e642;                               /* ← NEÓN AMARILLO */
+  box-shadow: 0 0 6px rgba(247,230,66,0.8);          /* ← GLOW AMARILLO */
+  border-radius:2px; left:0;
+  transition:0.3s ease-in-out;
+}
+.hamburger span:nth-child(1) { top:0; }
+.hamburger span:nth-child(2) { top:8px; }
+.hamburger span:nth-child(3) { top:16px; }
+
+.menu-toggle.active .hamburger span:nth-child(1) { top:8px; transform:rotate(135deg); }
+.menu-toggle.active .hamburger span:nth-child(2) { opacity:0; left:-60px; }
+.menu-toggle.active .hamburger span:nth-child(3) { top:8px; transform:rotate(-135deg); }
+
+/* Overlay */
+.menu-overlay {
+  position:fixed; inset:0;
+  background:rgba(0,0,0,0.72);
+  z-index:999;
+  opacity:0; visibility:hidden;
+  transition:all 0.3s ease;
+  backdrop-filter:blur(4px);
+}
+.menu-overlay.active { opacity:1; visibility:visible; }
+
+/* Menú lateral */
+.side-menu {
+  position:fixed;
+  top:0; right:-450px;
+  width:450px; height:100vh;
+  background:linear-gradient(160deg,#080d20 0%,#060512 100%);
+  /* ★ NEÓN AMARILLO — borde del menú */
+  border-left:1px solid rgba(247,230,66,0.2);        /* ← NEÓN AMARILLO */
+  box-shadow:-8px 0 40px rgba(247,230,66,0.08);      /* ← GLOW AMARILLO */
+  z-index:1000;
+  transition:right 0.42s cubic-bezier(0.25,0.46,0.45,0.94);
+  padding:100px 0 30px;
+  overflow-y:auto;
+}
+.side-menu.active { right:0; }
+
+/* Header del menú */
+.menu-header {
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  padding:0 30px 24px;
+  /* ★ NEÓN AMARILLO — divisor del header */
+  border-bottom:1px solid rgba(247,230,66,0.15);     /* ← NEÓN AMARILLO */
+  margin-bottom:8px;
+}
+.menu-planet { font-size:1rem; color:rgba(247,230,66,0.6); }
+
+.menu-title {
+  font-family:"Audiowide",sans-serif;
+  font-size:1.1rem; letter-spacing:4px;
+  /* ★ NEÓN AMARILLO — título del menú Audiowide */
+  color:#f7e642;                                     /* ← NEÓN AMARILLO */
+  text-shadow:0 0 12px rgba(247,230,66,0.7),0 0 24px rgba(247,230,66,0.3); /* ← GLOW AMARILLO */
+  margin:0;
+}
+
+/* Items */
+.menu-item {
+  display:flex; align-items:center; gap:14px;
+  padding:22px 48px;
+  color:#fff;
+  text-decoration:none;
+  font-family:"Poppins",sans-serif;
+  font-size:1.1rem; font-weight:500;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:all 0.3s ease;
+  transform:translateX(80px);
+  opacity:0;
+}
+.menu-item i { width:20px; color:rgba(247,230,66,0.7); } /* ← NEÓN AMARILLO */
+.menu-item:hover {
+  background:rgba(247,230,66,0.07);                  /* ← NEÓN AMARILLO */
+  color:#f7e642;                                     /* ← NEÓN AMARILLO */
+  padding-left:60px;
+  text-decoration:none;
+  box-shadow:inset 4px 0 0 #f7e642;                  /* ← RAYA LATERAL NEÓN AMARILLO */
+}
+.menu-item:hover i { color:#f7e642; text-shadow:0 0 8px rgba(247,230,66,0.8); }
+
+/* Items especiales */
+.menu-item-special {
+  color:#f7e642 !important;                          /* ← NEÓN AMARILLO */
+  font-weight:700;
+}
+.menu-item-special i { color:#f7e642 !important; }
+
+/* Divisor */
+.menu-divider {
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(247,230,66,0.35),transparent); /* ← NEÓN AMARILLO */
+  margin:10px 40px;
+}
+
+/* Stagger de entrada */
+.side-menu.active .menu-item {
+  transform:translateX(0); opacity:1;
+  transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.side-menu.active .menu-item:nth-child(1){transition-delay:0.08s}
+.side-menu.active .menu-item:nth-child(2){transition-delay:0.08s}
+.side-menu.active .menu-item:nth-child(3){transition-delay:0.08s}
+.side-menu.active .menu-item:nth-child(4){transition-delay:0.08s}
+.side-menu.active .menu-item:nth-child(5){transition-delay:0.08s}
+.side-menu.active .menu-item:nth-child(6){transition-delay:0.08s}
+.side-menu.active .menu-item:nth-child(7){transition-delay:0.08s}
+
+/* ============================================================
+   RESPONSIVE — MENÚ PARA MÓVILES
+============================================================ */
+@media (max-width: 767px) {
+  .side-menu {
+    width: 100%;
+    right: -100%;
+    padding: 80px 0 30px;
+  }
+  .menu-item {
+    justify-content: center;
+    text-align: center;
+    padding: 18px 20px;
+    flex-direction: row;
+    gap: 8px;
+  }
+  .menu-item i {
+    width: auto;
+    font-size: 1.2rem;
+  }
+  .menu-header {
+    padding: 0 20px 20px;
+  }
+  .menu-title {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+  .menu-divider {
+    margin: 8px 20px;
+  }
+.side-menu.active .menu-item {
+  transform:none; opacity:1;
+  transition:none;
+}
+.side-menu.active .menu-item:nth-child(1){transition-delay:0.08s}
+.side-menu.active .menu-item:nth-child(2){transition-delay:0.13s}
+.side-menu.active .menu-item:nth-child(3){transition-delay:0.18s}
+.side-menu.active .menu-item:nth-child(4){transition-delay:0.23s}
+.side-menu.active .menu-item:nth-child(5){transition-delay:0.28s}
+.side-menu.active .menu-item:nth-child(6){transition-delay:0.33s}
+.side-menu.active .menu-item:nth-child(7){transition-delay:0.38s}
+
+.menu-item:hover {                            /* ← NEÓN AMARILLO */
+  padding-left:0;                 /* ← RAYA LATERAL NEÓN AMARILLO */
+}
+
+}
+.section-neon-title {
+  text-align:center;
+  padding:80px 1rem 0;
+  margin-bottom:2.5rem;
+  
+}
+
+/* ★ NEÓN AMARILLO — el gran título de la sección usa Audiowide */
+.neon-title {
+  font-family:"Audiowide",sans-serif;                /* ← AUDIOWIDE */
+  font-size:clamp(1.8rem,4vw,3.4rem);
+  color:#f7e642;                                     /* ← NEÓN AMARILLO */
+  letter-spacing:4px;
+  text-transform:uppercase;
+  display:inline-block;
+  /* Capas de glow neón amarillo */
+  text-shadow:
+    0 0  7px #f7e642,                               /* ← GLOW AMARILLO capa 1 */
+    0 0 14px #f7e642,                               /* ← GLOW AMARILLO capa 2 */
+    0 0 28px rgba(247,230,66,0.75),                 /* ← GLOW AMARILLO capa 3 */
+    0 0 55px rgba(247,230,66,0.45),                 /* ← GLOW AMARILLO capa 4 */
+    0 0 90px rgba(247,230,66,0.20);                 /* ← GLOW AMARILLO capa 5 */
+  animation:neonFlicker 5s ease-in-out infinite;
+}
+@keyframes neonFlicker {
+  0%,100% {
+    text-shadow:
+      0 0  7px #f7e642,
+      0 0 14px #f7e642,
+      0 0 28px rgba(247,230,66,0.75),
+      0 0 55px rgba(247,230,66,0.45),
+      0 0 90px rgba(247,230,66,0.20);
+    opacity:1;
+  }
+  92%{opacity:1} 93%{opacity:0.82} 94%{opacity:1} 97%{opacity:0.88} 98%{opacity:1}
+}
+
+.neon-subtitle {
+  font-family:"Poppins",sans-serif;
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.5);
+  letter-spacing:5px;
+  text-transform:uppercase;
+  margin-top:0.4rem;
+}
+
+/* ★ NEÓN AMARILLO — línea decorativa bajo el título */
+.neon-line {
+  display:block;
+  width:100px; height:2px;
+  background:#f7e642;                               /* ← NEÓN AMARILLO */
+  margin:1rem auto 0;
+  border-radius:2px;
+  box-shadow:0 0 10px #f7e642,0 0 22px rgba(247,230,66,0.5); /* ← GLOW AMARILLO */
+}
+
+/* ============================================================
+   INSTRUCCIÓN "Toca las imágenes"
+============================================================ */
+.instruccion-imagenes {
+  display:block;
+  width:fit-content; max-width:70%;
+  margin:0 auto 2.5rem;
+  font-family:"Poppins",sans-serif;
+  font-size:0.9rem; color:#fff;
+  text-align:center; font-weight:500;
+  /* ★ NEÓN AMARILLO — borde de la instrucción */
+  border:1.5px solid rgba(247,230,66,0.5);          /* ← NEÓN AMARILLO */
+  border-radius:30px;
+  padding:9px 22px;
+  letter-spacing:1px;
+  animation:tapGlow 3s ease-in-out infinite;
+}
+/* ★ NEÓN AMARILLO — keyframe glow instrucción */
+@keyframes tapGlow {
+  0%,100%{box-shadow:0 0  8px rgba(247,230,66,0.3)} /* ← NEÓN AMARILLO */
+  50%    {box-shadow:0 0 20px rgba(247,230,66,0.7)} /* ← NEÓN AMARILLO */
+}
+
+/* ============================================================
+   CARDS — character-card con temática cósmica
+   Imágenes de 1000×1000 px (ratio 1:1)
+
+   GRID RESPONSIVO:
+     col-6    → 2 cards por fila en MÓVIL     (< 768px)
+     col-md-4 → 3 cards por fila en TABLET    (≥ 768px)
+     col-xl-3 → 4 cards por fila en PC/LAPTOP (≥ 1200px)
+============================================================ */
+.works-section { padding-bottom:60px; }
+
+.character-card {
+  background:rgba(13,17,36,0.72);
+  /* ★ NEÓN AMARILLO — borde de la card */
+  border:1px solid rgba(247,230,66,0.22);           /* ← NEÓN AMARILLO */
+  border-radius:16px;
+  overflow:hidden;
+  transition:transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94),
+             box-shadow 0.35s ease,
+             border-color 0.35s ease;
+  cursor:pointer;
+  position:relative;
+  height:100%;
+  backdrop-filter:blur(8px);
+  box-shadow:0 4px 20px rgba(0,0,0,0.45);
+}
+
+/* Línea superior de brillo */
+.character-card::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:1px;
+  /* ★ NEÓN AMARILLO — brillo superior de la card */
+  background:linear-gradient(90deg,transparent,rgba(247,230,66,0.6),transparent); /* ← NEÓN AMARILLO */
+  opacity:0.35; transition:opacity 0.3s ease; z-index:2;
+}
+
+/* Hover */
+.character-card:hover {
+  transform:translateY(-8px) scale(1.015);
+  /* ★ NEÓN AMARILLO — glow de la card en hover */
+  border-color:rgba(247,230,66,0.8);               /* ← NEÓN AMARILLO */
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.55),
+    0  0  28px rgba(247,230,66,0.45),              /* ← GLOW AMARILLO */
+    0  0  55px rgba(247,230,66,0.18);              /* ← GLOW AMARILLO externo */
+}
+.character-card:hover::before { opacity:1; }
+
+/* Contenedor imagen 1:1 */
+.card-img-wrapper {
+  position:relative;
+  width:100%; padding-top:100%;                    /* ← ratio 1:1 para 1000×1000 px */
+  overflow:hidden;
+  background:#060512;
+}
+.card-img-wrapper a {
+  position:absolute; inset:0; display:block;
+}
+.card-img-wrapper img {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  transition:transform 0.45s ease;
+}
+.character-card:hover .card-img-wrapper img { transform:scale(1.06); }
+
+/* Overlay imagen hover */
+.card-hover-overlay {
+  position:absolute; inset:0;
+  /* ★ NEÓN AMARILLO — overlay de la imagen en hover */
+  background:linear-gradient(135deg,rgba(247,230,66,0.06) 0%,transparent 60%); /* ← NEÓN AMARILLO */
+  opacity:0; transition:opacity 0.35s ease; pointer-events:none;
+}
+.character-card:hover .card-hover-overlay { opacity:1; }
+
+/* Info card */
+.card-info {
+  /* ★ NEÓN AMARILLO — borde superior del bloque de info */
+  border-top:1px solid rgba(247,230,66,0.12);      /* ← NEÓN AMARILLO */
+}
+.card-info h3 {
+  font-family:"Poppins",sans-serif;
+  font-size:0.95rem; font-weight:700;
+  color:#fff; margin:0 0 4px;
+  transition:color 0.3s ease; line-height:1.3;
+}
+.character-card:hover .card-info h3 {
+  /* ★ NEÓN AMARILLO — título de card en hover */
+  color:#f7e642;                                   /* ← NEÓN AMARILLO */
+}
+.card-year {
+  font-size:0.72rem;
+  /* ★ NEÓN AMARILLO — etiqueta año/herramienta */
+  color:rgba(247,230,66,0.55);                     /* ← NEÓN AMARILLO */
+  letter-spacing:1px; text-transform:uppercase; margin:0;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.footer-sozoria {
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1003;
+  background:rgba(4,4,14,0.92);
+  /* ★ NEÓN AMARILLO — borde del footer */
+  border-top:1px solid rgba(247,230,66,0.12);      /* ← NEÓN AMARILLO */
+  font-family:"Poppins",sans-serif;
+}
+.footer-content {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:16px 32px; max-width:1400px; margin:0 auto;
+  flex-wrap:wrap; gap:10px;
+}
+.footer-left { font-size:0.85rem; font-weight:400; }
+.footer-left p { margin:0; color:rgba(255,255,255,0.6); }
+.footer-right { display:flex; gap:4px; }
+.footer-right a {
+  color:rgba(255,255,255,0.6);
+  margin-left:16px; font-size:1.4rem;
+  text-decoration:none;
+  transition:color 0.25s ease, text-shadow 0.25s ease;
+}
+.footer-right a:hover {
+  /* ★ NEÓN AMARILLO — íconos de redes sociales */
+  color:#f7e642;                                   /* ← NEÓN AMARILLO */
+  text-shadow:0 0 10px rgba(247,230,66,0.7);       /* ← GLOW AMARILLO */
+}
+
+/* ============================================================
+   OVERLAY ORIENTACIÓN
+============================================================ */
+.orientation-overlay {
+  position:fixed; inset:0;
+  background:linear-gradient(135deg,#060512 0%,#0a0d22 100%);
+  display:none; flex-direction:column;
+  justify-content:center; align-items:center;
+  z-index:99999; padding:20px; text-align:center; gap:1.5rem;
+}
+.device-icon { width:80px; height:140px; position:relative; }
+.phone-container { width:100%; height:100%; animation:rotateDevice 2.5s ease-in-out infinite; }
+.phone {
+  width:52px; height:90px;
+  /* ★ NEÓN AMARILLO — teléfono del overlay */
+  border:2px solid #f7e642;                        /* ← NEÓN AMARILLO */
+  border-radius:12px;
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  box-shadow:0 0 18px rgba(247,230,66,0.5);        /* ← GLOW AMARILLO */
+}
+@keyframes rotateDevice { 0%,100%{transform:rotate(90deg)} 50%{transform:rotate(0deg)} }
+.orientation-message { color:#fff; font-size:1rem; max-width:280px; line-height:1.6; }
+.pulse { animation:pulse 1.8s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+.rotate-indicator {
+  color:#f7e642;                                   /* ← NEÓN AMARILLO */
+  font-size:0.95rem; text-transform:uppercase; letter-spacing:1px;
+  font-weight:600; display:flex; align-items:center; gap:8px;
+}
+.arrow-rotate { display:inline-block; animation:spin 2s linear infinite; }
+@keyframes spin { to{transform:rotate(360deg)} }
+
+/* ============================================================
+   SCROLLBAR
+============================================================ */
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:#060512; }
+::-webkit-scrollbar-thumb {
+  background:rgba(247,230,66,0.3);                 /* ← NEÓN AMARILLO */
+  border-radius:3px;
+}
+::-webkit-scrollbar-thumb:hover { background:rgba(247,230,66,0.6); }
+
+/* ============================================================
+   RESPONSIVE — TABLET (768px – 1024px)
+============================================================ */
+@media (max-width:1024px) and (min-width:769px) {
+  .side-menu { width:380px; right:-380px; padding:90px 0 20px; }
+  .menu-item  { padding:20px 36px; font-size:1rem; }
+  .menu-item:hover { padding-left:46px; }
+  .neon-title { font-size:clamp(1.6rem,3.5vw,2.6rem); }
+}
+
+/* ─── Lightbox de confirmación espacial ─────────────────────────────────── */
+.confirm-lightbox {
+  position: fixed;
+  inset: 0;
+  /* Usar opacity + visibility para que la animación funcione correctamente */
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background: radial-gradient(ellipse at top, rgba(9, 8, 27, 0.97), rgba(4, 6, 15, 0.97));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  padding: 1rem;
+  /* Estrellas de fondo generadas con CSS */
+  overflow: hidden;
+}
+
+.confirm-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Estrellas animadas dentro del lightbox */
+.confirm-lightbox::before,
+.confirm-lightbox::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.confirm-lightbox::before {
+  background-image:
+    radial-gradient(1px 1px at 10%  20%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 25%  55%, rgba(200,220,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40%  10%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 55%  75%, rgba(200,220,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70%  35%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 80%  60%, rgba(200,220,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90%  15%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 15%  85%, rgba(200,220,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60%  90%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 35%  40%, rgba(180,200,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 5%   50%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 95%  80%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 45%  65%, rgba(150,180,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75%  5%,  #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 88%  45%, rgba(200,220,255,0.5) 0%, transparent 100%);
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+.confirm-lightbox::after {
+  background-image:
+    radial-gradient(1px 1px at 20%  30%, rgba(180,200,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50%  20%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 65%  50%, rgba(200,220,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30%  70%, #fff 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 85%  25%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 12%  95%, rgba(150,180,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 72%  78%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 48%  42%, rgba(200,220,255,0.5) 0%, transparent 100%),
+    radial-gradient(2px 2px at 92%  58%, rgba(255,220,100,0.5) 0%, transparent 100%),
+    radial-gradient(2px 2px at 18%  8%,  rgba(255,220,100,0.4) 0%, transparent 100%);
+  animation: twinkle 6s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.6; }
+  to   { opacity: 1;   }
+}
+
+/* Tarjeta central */
+.confirm-card {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(160deg, rgba(28, 22, 90, 0.96), rgba(9, 12, 48, 0.96));
+  border: 1px solid rgba(120, 160, 255, 0.35);
+  border-radius: 1.25rem;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+  color: #fff;
+  width: min(420px, 92vw);
+  box-shadow:
+    0 0 60px rgba(50, 90, 200, 0.5),
+    0 0 120px rgba(30, 50, 150, 0.25),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-6px); }
+}
+
+/* Ícono de planeta/cohete decorativo */
+.confirm-card::before {
+  content: '🚀';
+  display: block;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 10px rgba(100,160,255,0.8));
+  animation: rocketBounce 2s ease-in-out infinite;
+}
+
+@keyframes rocketBounce {
+  0%, 100% { transform: translateY(0)    rotate(-10deg); }
+  50%       { transform: translateY(-8px) rotate(10deg);  }
+}
+
+.confirm-card h2 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 20px rgba(100,160,255,0.6);
+}
+
+.confirm-card p {
+  margin-bottom: 1.5rem;
+  color: #b8cfff;
+  font-size: clamp(0.85rem, 3vw, 0.95rem);
+  line-height: 1.5;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 3vw, 1rem);
+  flex-wrap: wrap;
+}
+
+.confirm-actions .btn {
+  min-width: clamp(100px, 28vw, 130px);
+  font-weight: 600;
+  font-size: clamp(0.8rem, 3vw, 0.9rem);
+  padding: 0.55rem 1.2rem;
+  border-radius: 50px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.confirm-actions .btn-danger {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: none;
+  box-shadow: 0 0 14px rgba(231, 76, 60, 0.5);
+}
+.confirm-actions .btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(231, 76, 60, 0.75);
+}
+
+.confirm-actions .btn-secondary {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+}
+.confirm-actions .btn-secondary:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+
+/* Nebulosa decorativa detrás de la card */
+.space-animation {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 40% at 20% 30%, rgba(80,50,200,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 80% 70%, rgba(30,80,200,0.15) 0%, transparent 70%),
+    radial-gradient(circle 300px at 50% 50%, rgba(60,30,150,0.12) 0%, transparent 70%);
+  animation: nebulaPulse 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes nebulaPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1);    }
+  50%       { opacity: 1;   transform: scale(1.05); }
+}
+
+/* ─── Responsivo lightbox ─────────────────────────────────────────────────── */
+/* Móviles pequeños */
+@media (max-width: 400px) {
+  .confirm-card {
+    padding: 1.25rem 1rem;
+    border-radius: 1rem;
+  }
+  .confirm-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .confirm-actions .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .confirm-card {
+    width: min(460px, 80vw);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — FOOTER PARA MÓVILES E iPad
+============================================================ */
+@media (max-width: 767px) {
+  .footer-content {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-left {
+    order: 1;
+  }
+  .footer-right {
+    order: 2;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-content {
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  .footer-left {
+    order: 1;
+  }
+  .footer-right {
+    order: 2;
+  }
+}
+============================================================ */
+@media (max-width:768px) {
+  html,body { overflow-y:auto; }
+
+  .side-menu {
+    top:-100vh; right:0;
+    width:100vw; height:100vh;
+    padding:110px 0 30px;
+    border-left:none;
+    border-bottom:1px solid rgba(247,230,66,0.2);  /* ← NEÓN AMARILLO */
+    transition:top 0.42s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .side-menu.active { top:0; right:0; }
+
+  .menu-item {
+    padding:18px 28px; font-size:1.1rem;
+    text-align:center; justify-content:center;
+    transform:translateY(-50px);
+  }
+  .side-menu.active .menu-item { transform:translateY(0); }
+  .menu-item:hover { padding-left:28px; }
+
+  .section-neon-title { padding-top:90px; }
+  .neon-title  { font-size:clamp(1.4rem,6vw,2rem); letter-spacing:2px; }
+  .neon-subtitle { font-size:0.75rem; }
+  .neon-line   { width:70px; }
+
+  .instruccion-imagenes { max-width:90%; font-size:0.8rem; padding:8px 14px; }
+
+  .card-info h3 { font-size:0.85rem; }
+  .card-year    { font-size:0.68rem; }
+
+  .footer-content { flex-direction:column; text-align:center; padding:14px 16px; }
+  .footer-right a  { margin-left:12px; font-size:1.2rem; }
+}
+
+/* ============================================================
+   RESPONSIVE — MÓVIL PEQUEÑO (≤480px)
+============================================================ */
+@media (max-width:480px) {
+  .menu-toggle  { width:52px; height:52px; top:14px; right:14px; }
+  .neon-title   { font-size:clamp(1.2rem,7vw,1.7rem); letter-spacing:1px; }
+  .card-info    { padding:10px 12px 14px !important; }
+  .card-info h3 { font-size:0.78rem; }
+}
