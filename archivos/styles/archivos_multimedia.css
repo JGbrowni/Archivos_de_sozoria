@@ -25,7 +25,7 @@ html, body {
   scroll-behavior: smooth;
   font-family: "Poppins", sans-serif;
   color: #fff;
-  background-color: #120d05;
+  background-color: #1d0303;
   width: 100%;
 }
 
@@ -58,9 +58,9 @@ html, body {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 50% at 15% 40%, rgba(180, 140, 20, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 60% at 85% 65%, rgba(200, 146, 20, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse 40% 30% at 50%  5%, rgba(231, 183, 60, 0.08) 0%, transparent 40%);
+    radial-gradient(ellipse 70% 50% at 15% 40%, rgba(180, 20, 20, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 60% at 85% 65%, rgba(200, 20, 20, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50%  5%, rgba(231, 60, 60, 0.08) 0%, transparent 40%);
   animation: nebulaPulse 8s ease-in-out infinite;
 }
 @keyframes nebulaPulse {
@@ -253,20 +253,20 @@ html, body {
   top: 20px; right: 20px;
   z-index: 1002;
   /* ★ NEÓN AMARILLO — fondo y borde del botón hamburguesa */
-  background: rgba(247,230,66,0.12);               /* ← NEÓN AMARILLO */
-  border: 2px solid rgba(247,230,66,0.8);           /* ← BORDE NEÓN AMARILLO */
+  background: rgba(247, 66, 66, 0.12);               /* ← NEÓN AMARILLO */
+  border: 2px solid rgba(247, 66, 66, 0.8);           /* ← BORDE NEÓN AMARILLO */
   border-radius: 50%;
   width: 60px; height: 60px;
   cursor: pointer;
   display: flex; align-items:center; justify-content:center;
   /* ★ NEÓN AMARILLO — glow del botón */
-  box-shadow: 0 0 14px rgba(247,230,66,0.5), inset 0 0 14px rgba(247,230,66,0.08); /* ← GLOW AMARILLO */
+  box-shadow: 0 0 14px rgba(247, 66, 66, 0.5), inset 0 0 14 rgba(247, 66, 66, 0.08); /* ← GLOW AMARILLO */
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
 .menu-toggle:hover {
-  background: rgba(247,230,66,0.22);
-  box-shadow: 0 0 28px rgba(247,230,66,0.75), inset 0 0 20px rgba(247,230,66,0.15); /* ← GLOW AMARILLO */
+  background: rgba(247, 66, 66, 0.22);
+  box-shadow: 0 0 28px rgba(247, 66, 66, 0.75), inset 0 0 20px rgba(247, 66, 66, 0.15); /* ← GLOW AMARILLO */
   transform: scale(1.08);
 }
 
@@ -276,8 +276,8 @@ html, body {
   display:block; position:absolute;
   height:3px; width:100%;
   /* ★ NEÓN AMARILLO — color de las rayas del menú */
-  background: #f7e642;                               /* ← NEÓN AMARILLO */
-  box-shadow: 0 0 6px rgba(247,230,66,0.8);          /* ← GLOW AMARILLO */
+  background: #FF0032;                               /* ← NEÓN AMARILLO */
+  box-shadow: 0 0 6px rgba(247, 66, 66, 0.8);          /* ← GLOW AMARILLO */
   border-radius:2px; left:0;
   transition:0.3s ease-in-out;
 }
@@ -307,8 +307,8 @@ html, body {
   width:450px; height:100vh;
   background:linear-gradient(160deg,#080d20 0%,#060512 100%);
   /* ★ NEÓN AMARILLO — borde del menú */
-  border-left:1px solid rgba(247,230,66,0.2);        /* ← NEÓN AMARILLO */
-  box-shadow:-8px 0 40px rgba(247,230,66,0.08);      /* ← GLOW AMARILLO */
+  border-left:1px solid rgba(247, 66, 66, 0.2);        /* ← NEÓN AMARILLO */
+  box-shadow:-8px 0 40px rgba(247, 66, 66, 0.08);      /* ← GLOW AMARILLO */
   z-index:1000;
   transition:right 0.42s cubic-bezier(0.25,0.46,0.45,0.94);
   padding:100px 0 30px;
@@ -321,17 +321,17 @@ html, body {
   display:flex; align-items:center; justify-content:center; gap:12px;
   padding:0 30px 24px;
   /* ★ NEÓN AMARILLO — divisor del header */
-  border-bottom:1px solid rgba(247,230,66,0.15);     /* ← NEÓN AMARILLO */
+  border-bottom:1px solid rgba(247, 66, 66, 0.15);     /* ← NEÓN AMARILLO */
   margin-bottom:8px;
 }
-.menu-planet { font-size:1rem; color:rgba(247,230,66,0.6); }
+.menu-planet { font-size:1rem; color:rgba(247, 66, 66, 0.6); }
 
 .menu-title {
   font-family:"Audiowide",sans-serif;
   font-size:1.1rem; letter-spacing:4px;
   /* ★ NEÓN AMARILLO — título del menú Audiowide */
-  color:#f7e642;                                     /* ← NEÓN AMARILLO */
-  text-shadow:0 0 12px rgba(247,230,66,0.7),0 0 24px rgba(247,230,66,0.3); /* ← GLOW AMARILLO */
+  color:#FF0032;                                     /* ← NEÓN AMARILLO */
+  text-shadow:0 0 12px rgba(247, 66, 66, 0.7),0 0 24px rgba(247, 66, 66, 0.3); /* ← GLOW AMARILLO */
   margin:0;
 }
 
@@ -348,27 +348,27 @@ html, body {
   transform:translateX(80px);
   opacity:0;
 }
-.menu-item i { width:20px; color:rgba(247,230,66,0.7); } /* ← NEÓN AMARILLO */
+.menu-item i { width:20px; color:rgba(244, 45, 45, 0.7); } /* ← NEÓN AMARILLO */
 .menu-item:hover {
   background:rgba(247,230,66,0.07);                  /* ← NEÓN AMARILLO */
-  color:#f7e642;                                     /* ← NEÓN AMARILLO */
+  color:#FF0032;                                     /* ← NEÓN AMARILLO */
   padding-left:60px;
   text-decoration:none;
-  box-shadow:inset 4px 0 0 #f7e642;                  /* ← RAYA LATERAL NEÓN AMARILLO */
+  box-shadow:inset 4px 0 0 #FF0032;                  /* ← RAYA LATERAL NEÓN AMARILLO */
 }
-.menu-item:hover i { color:#f7e642; text-shadow:0 0 8px rgba(247,230,66,0.8); }
+.menu-item:hover i { color:#f74242; text-shadow:0 0 8px rgba(247, 66, 66, 0.8); }
 
 /* Items especiales */
 .menu-item-special {
-  color:#f7e642 !important;                          /* ← NEÓN AMARILLO */
+  color:#FF0032 !important;                          /* ← NEÓN AMARILLO */
   font-weight:700;
 }
-.menu-item-special i { color:#f7e642 !important; }
+.menu-item-special i { color:#FF0032 !important; }
 
 /* Divisor */
 .menu-divider {
   height:1px;
-  background:linear-gradient(90deg,transparent,rgba(247,230,66,0.35),transparent); /* ← NEÓN AMARILLO */
+  background:linear-gradient(90deg,transparent,rgba(247, 66, 66, 0.35),transparent); /* ← NEÓN AMARILLO */
   margin:10px 40px;
 }
 
@@ -443,27 +443,27 @@ html, body {
 .neon-title {
   font-family:"Audiowide",sans-serif;                /* ← AUDIOWIDE */
   font-size:clamp(1.8rem,4vw,3.4rem);
-  color:#f7e642;                                     /* ← NEÓN AMARILLO */
+  color:#FF2D55;                                     /* ← NEÓN AMARILLO */
   letter-spacing:4px;
   text-transform:uppercase;
   display:inline-block;
   /* Capas de glow neón amarillo */
   text-shadow:
-    0 0  7px #f7e642,                               /* ← GLOW AMARILLO capa 1 */
-    0 0 14px #f7e642,                               /* ← GLOW AMARILLO capa 2 */
-    0 0 28px rgba(247,230,66,0.75),                 /* ← GLOW AMARILLO capa 3 */
-    0 0 55px rgba(247,230,66,0.45),                 /* ← GLOW AMARILLO capa 4 */
-    0 0 90px rgba(247,230,66,0.20);                 /* ← GLOW AMARILLO capa 5 */
+    0 0  7px #FF0032,                               /* ← GLOW AMARILLO capa 1 */
+    0 0 14px #FF0032,                               /* ← GLOW AMARILLO capa 2 */
+    0 0 28px rgba(247, 66, 66, 0.75),                 /* ← GLOW AMARILLO capa 3 */
+    0 0 55px rgba(247, 66, 66, 0.45),                 /* ← GLOW AMARILLO capa 4 */
+    0 0 90px rgba(247, 66, 66, 0.2);                 /* ← GLOW AMARILLO capa 5 */
   animation:neonFlicker 5s ease-in-out infinite;
 }
 @keyframes neonFlicker {
   0%,100% {
     text-shadow:
-      0 0  7px #f7e642,
-      0 0 14px #f7e642,
-      0 0 28px rgba(247,230,66,0.75),
-      0 0 55px rgba(247,230,66,0.45),
-      0 0 90px rgba(247,230,66,0.20);
+    0 0  7px #FF0032,                               /* ← GLOW AMARILLO capa 1 */
+    0 0 14px #FF0032,                               /* ← GLOW AMARILLO capa 2 */
+    0 0 28px rgba(247, 66, 66, 0.75),                 /* ← GLOW AMARILLO capa 3 */
+    0 0 55px rgba(247, 66, 66, 0.45),                 /* ← GLOW AMARILLO capa 4 */
+    0 0 90px rgba(247, 66, 66, 0.2);  
     opacity:1;
   }
   92%{opacity:1} 93%{opacity:0.82} 94%{opacity:1} 97%{opacity:0.88} 98%{opacity:1}
@@ -482,10 +482,10 @@ html, body {
 .neon-line {
   display:block;
   width:100px; height:2px;
-  background:#f7e642;                               /* ← NEÓN AMARILLO */
+  background:#FF0032;                               /* ← NEÓN AMARILLO */
   margin:1rem auto 0;
   border-radius:2px;
-  box-shadow:0 0 10px #f7e642,0 0 22px rgba(247,230,66,0.5); /* ← GLOW AMARILLO */
+  box-shadow:0 0 10px #f74242,0 0 22px rgba(247, 66, 66, 0.5); /* ← GLOW AMARILLO */
 }
 
 /* ============================================================
@@ -499,7 +499,7 @@ html, body {
   font-size:0.9rem; color:#fff;
   text-align:center; font-weight:500;
   /* ★ NEÓN AMARILLO — borde de la instrucción */
-  border:1.5px solid rgba(247,230,66,0.5);          /* ← NEÓN AMARILLO */
+  border:1.5px solid rgba(247, 66, 66, 0.5);          /* ← NEÓN AMARILLO */
   border-radius:30px;
   padding:9px 22px;
   letter-spacing:1px;
@@ -507,8 +507,8 @@ html, body {
 }
 /* ★ NEÓN AMARILLO — keyframe glow instrucción */
 @keyframes tapGlow {
-  0%,100%{box-shadow:0 0  8px rgba(247,230,66,0.3)} /* ← NEÓN AMARILLO */
-  50%    {box-shadow:0 0 20px rgba(247,230,66,0.7)} /* ← NEÓN AMARILLO */
+  0%,100%{box-shadow:0 0  8px rgba(247, 66, 66, 0.3)} /* ← NEÓN AMARILLO */
+  50%    {box-shadow:0 0 20px rgba(247, 66, 66, 0.7)} /* ← NEÓN AMARILLO */
 }
 
 /* ============================================================
@@ -525,7 +525,7 @@ html, body {
 .character-card {
   background:rgba(13,17,36,0.72);
   /* ★ NEÓN AMARILLO — borde de la card */
-  border:1px solid rgba(247,230,66,0.22);           /* ← NEÓN AMARILLO */
+  border:1px solid rgba(247, 66, 66, 0.22);           /* ← NEÓN AMARILLO */
   border-radius:16px;
   overflow:hidden;
   transition:transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94),
@@ -543,7 +543,7 @@ html, body {
   content:''; position:absolute;
   top:0; left:0; right:0; height:1px;
   /* ★ NEÓN AMARILLO — brillo superior de la card */
-  background:linear-gradient(90deg,transparent,rgba(247,230,66,0.6),transparent); /* ← NEÓN AMARILLO */
+  background:linear-gradient(90deg,transparent,rgba(247, 66, 66, 0.6),transparent); /* ← NEÓN AMARILLO */
   opacity:0.35; transition:opacity 0.3s ease; z-index:2;
 }
 
@@ -551,11 +551,11 @@ html, body {
 .character-card:hover {
   transform:translateY(-8px) scale(1.015);
   /* ★ NEÓN AMARILLO — glow de la card en hover */
-  border-color:rgba(247,230,66,0.8);               /* ← NEÓN AMARILLO */
+  border-color:rgba(247, 66, 66, 0.8);               /* ← NEÓN AMARILLO */
   box-shadow:
     0 14px 40px rgba(0,0,0,0.55),
-    0  0  28px rgba(247,230,66,0.45),              /* ← GLOW AMARILLO */
-    0  0  55px rgba(247,230,66,0.18);              /* ← GLOW AMARILLO externo */
+    0  0  28px rgba(247, 66, 66, 0.45),              /* ← GLOW AMARILLO */
+    0  0  55px rgba(247, 66, 66, 0.18);              /* ← GLOW AMARILLO externo */
 }
 .character-card:hover::before { opacity:1; }
 
@@ -581,7 +581,7 @@ html, body {
 .card-hover-overlay {
   position:absolute; inset:0;
   /* ★ NEÓN AMARILLO — overlay de la imagen en hover */
-  background:linear-gradient(135deg,rgba(247,230,66,0.06) 0%,transparent 60%); /* ← NEÓN AMARILLO */
+  background:linear-gradient(135deg,rgba(247, 66, 66, 0.06) 0%,transparent 60%); /* ← NEÓN AMARILLO */
   opacity:0; transition:opacity 0.35s ease; pointer-events:none;
 }
 .character-card:hover .card-hover-overlay { opacity:1; }
@@ -589,7 +589,7 @@ html, body {
 /* Info card */
 .card-info {
   /* ★ NEÓN AMARILLO — borde superior del bloque de info */
-  border-top:1px solid rgba(247,230,66,0.12);      /* ← NEÓN AMARILLO */
+  border-top:1px solid rgba(247, 66, 66, 0.12);      /* ← NEÓN AMARILLO */
 }
 .card-info h3 {
   font-family:"Poppins",sans-serif;
@@ -599,12 +599,12 @@ html, body {
 }
 .character-card:hover .card-info h3 {
   /* ★ NEÓN AMARILLO — título de card en hover */
-  color:#f7e642;                                   /* ← NEÓN AMARILLO */
+  color:#FF0032;                                   /* ← NEÓN AMARILLO */
 }
 .card-year {
   font-size:0.72rem;
   /* ★ NEÓN AMARILLO — etiqueta año/herramienta */
-  color:rgba(247,230,66,0.55);                     /* ← NEÓN AMARILLO */
+  color:rgba(255, 90, 90, 0.657);                     /* ← NEÓN AMARILLO */
   letter-spacing:1px; text-transform:uppercase; margin:0;
 }
 
@@ -618,7 +618,7 @@ html, body {
   z-index: 1003;
   background:rgba(4,4,14,0.92);
   /* ★ NEÓN AMARILLO — borde del footer */
-  border-top:1px solid rgba(247,230,66,0.12);      /* ← NEÓN AMARILLO */
+  border-top:1px solid rgba(247, 66, 66, 0.12);      /* ← NEÓN AMARILLO */
   font-family:"Poppins",sans-serif;
 }
 .footer-content {
@@ -637,8 +637,8 @@ html, body {
 }
 .footer-right a:hover {
   /* ★ NEÓN AMARILLO — íconos de redes sociales */
-  color:#f7e642;                                   /* ← NEÓN AMARILLO */
-  text-shadow:0 0 10px rgba(247,230,66,0.7);       /* ← GLOW AMARILLO */
+  color:#f74242;                                   /* ← NEÓN AMARILLO */
+  text-shadow:0 0 10px rgba(247, 66, 66, 0.7);       /* ← GLOW AMARILLO */
 }
 
 /* ============================================================
@@ -656,17 +656,17 @@ html, body {
 .phone {
   width:52px; height:90px;
   /* ★ NEÓN AMARILLO — teléfono del overlay */
-  border:2px solid #f7e642;                        /* ← NEÓN AMARILLO */
+  border:2px solid #FF0032;                        /* ← NEÓN AMARILLO */
   border-radius:12px;
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  box-shadow:0 0 18px rgba(247,230,66,0.5);        /* ← GLOW AMARILLO */
+  box-shadow:0 0 18px rgba(247, 66, 66, 0.5);        /* ← GLOW AMARILLO */
 }
 @keyframes rotateDevice { 0%,100%{transform:rotate(90deg)} 50%{transform:rotate(0deg)} }
 .orientation-message { color:#fff; font-size:1rem; max-width:280px; line-height:1.6; }
 .pulse { animation:pulse 1.8s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
 .rotate-indicator {
-  color:#f7e642;                                   /* ← NEÓN AMARILLO */
+  color:#FF0032;                                   /* ← NEÓN AMARILLO */
   font-size:0.95rem; text-transform:uppercase; letter-spacing:1px;
   font-weight:600; display:flex; align-items:center; gap:8px;
 }
@@ -679,10 +679,10 @@ html, body {
 ::-webkit-scrollbar { width:6px; }
 ::-webkit-scrollbar-track { background:#060512; }
 ::-webkit-scrollbar-thumb {
-  background:rgba(247,230,66,0.3);                 /* ← NEÓN AMARILLO */
+  background:rgba(247, 66, 66, 0.3);                 /* ← NEÓN AMARILLO */
   border-radius:3px;
 }
-::-webkit-scrollbar-thumb:hover { background:rgba(247,230,66,0.6); }
+::-webkit-scrollbar-thumb:hover { background:rgba(247, 66, 66, 0.6); }
 
 /* ============================================================
    RESPONSIVE — TABLET (768px – 1024px)
@@ -929,7 +929,7 @@ html, body {
     order: 2;
   }
 }
-============================================================ */
+
 @media (max-width:768px) {
   html,body { overflow-y:auto; }
 
@@ -938,7 +938,7 @@ html, body {
     width:100vw; height:100vh;
     padding:110px 0 30px;
     border-left:none;
-    border-bottom:1px solid rgba(247,230,66,0.2);  /* ← NEÓN AMARILLO */
+    border-bottom:1px solid rgba(247, 66, 66, 0.2);  /* ← NEÓN AMARILLO */
     transition:top 0.42s cubic-bezier(0.25,0.46,0.45,0.94);
   }
   .side-menu.active { top:0; right:0; }
