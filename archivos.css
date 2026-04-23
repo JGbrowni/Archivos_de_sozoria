@@ -154,8 +154,8 @@ html, body{
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: auto;
-    padding: 80px 16px;
+    overflow: hidden;
+    padding: 70px 16px 50px;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -166,7 +166,7 @@ html, body{
 
 .container1 {
     width: 100%;
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -180,21 +180,21 @@ html, body{
 }
 
 .welcome-text {
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.3rem;
 }
 
 #TitleStatic {
-    margin-bottom: 1.4rem;
+    margin-bottom: 0.8rem;
 }
 
 /* Espacio entre el bloque de títulos animados y el botón */
 #sozoria:last-of-type,
 .title-animated:last-of-type {
-    margin-bottom: 1.6rem;
+    margin-bottom: 1rem;
 }
 
 #botonComenzar {
-    margin-bottom: 1.4rem;
+    margin-bottom: 0.8rem;
 }
 
 #astroContainer {
@@ -687,9 +687,9 @@ html, body{
   font-family: "Audiowide", sans-serif;
   font-weight: 400;
   /* ✏️ TAMAÑO DEL TÍTULO — modifica este valor para ajustar el tamaño */
-  font-size: clamp(3rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   letter-spacing: 0.08em;
-  line-height: 1.2;
+  line-height: 1.15;
   text-transform: uppercase;
   color: #fff;
   text-shadow:
@@ -759,7 +759,14 @@ html, body{
 
 @media (min-width: 768px) and (max-width: 1440px) {
   .title-animated{
-    font-size: clamp(4rem, 5vw, 3.5rem);
+    font-size: clamp(3rem, 4.5vw, 3.2rem);
+  }
+}
+
+/* Pantallas grandes ≥ 1441px (MacBook Pro, iMac, monitores) */
+@media (min-width: 1441px) {
+  .title-animated {
+    font-size: clamp(3.2rem, 4vw, 4rem);
   }
 }
 
@@ -1046,15 +1053,23 @@ html, body{
 }
 
 /* Desktop / iPad Pro / Laptop (≥ 1024px) */
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
   .astro-img {
-    width: 560px;
-    height: 560px;
+    width: 320px;
+    height: 320px;
   }
 }
 
-/* Pantallas grandes (≥ 1440px) */
-@media (min-width: 1440px) {
+/* Pantallas grandes (1440px – 1919px) — MacBook Pro 14/16" */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .astro-img {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+/* Pantallas muy grandes (≥ 1920px) */
+@media (min-width: 1920px) {
   .astro-img {
     width: 380px;
     height: 380px;
@@ -1065,6 +1080,31 @@ html, body{
 @media (min-width: 1024px) {
   .content--visible #astroContainer {
     animation: cosmicRevealBtn 1s cubic-bezier(0.23, 1, 0.32, 1) 1.7s both;
+  }
+}
+
+/* ── Layout general para pantallas grandes ≥ 1440px ──────────────────────── */
+@media (min-width: 1440px) {
+  .content {
+    padding: 60px 24px 40px;
+    align-items: center;
+  }
+
+  #botonComenzar {
+    margin-bottom: 0.6rem;
+  }
+
+  .welcome-text {
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .title-animated:last-of-type {
+    margin-bottom: 0.8rem;
+  }
+
+  #astroContainer {
+    padding-top: 0;
   }
 }
 
@@ -1717,5 +1757,27 @@ html, body{
   .archivos-grid {
     gap: 8px;
     max-width: 320px;
+  }
+}
+
+/* Pantallas grandes ≥ 1440px (MacBook Pro, etc.) */
+@media (min-width: 1440px) {
+  .archivos-section {
+    padding: 90px 40px 70px;
+    justify-content: center;
+  }
+
+  .archivos-grid {
+    max-width: 1280px;
+    gap: clamp(20px, 2vw, 32px);
+  }
+
+  .archivo-card {
+    aspect-ratio: 1 / 1.3;
+  }
+
+  .archivos-titulo h2 {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    margin-bottom: 0.8rem;
   }
 }

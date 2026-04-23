@@ -974,3 +974,238 @@ html, body {
   .card-info    { padding:10px 12px 14px !important; }
   .card-info h3 { font-size:0.78rem; }
 }
+
+/* ============================================================
+   WIDE CARD — Card larga con logo + 2 imágenes + descripción
+   Uso: agrega clase .wide-card al .character-card dentro de col-12
+============================================================ */
+
+/* Sobreescribe el comportamiento base de character-card */
+.wide-card {
+  cursor: default;          /* el hover global sigue, pero no levanta la card entera */
+}
+.wide-card:hover {
+  transform: none;          /* anulamos el translateY del hover general */
+}
+
+/* Layout interno horizontal (PC / tablet / laptop) */
+.wcard-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 220px;
+}
+
+/* ── Columna logo ──────────────────────────────────────────── */
+.wcard-logo-col {
+  flex: 0 0 auto;
+  width: clamp(160px, 18%, 220px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  border-right: 1px solid rgba(247, 154, 66, 0.15);
+  background: rgba(0,0,0,0.18);
+}
+
+.wcard-logo {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(247, 154, 66, 0.3));
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+.wide-card:hover .wcard-logo {
+  filter: drop-shadow(0 0 18px rgba(247, 154, 66, 0.6));
+  transform: scale(1.04);
+}
+
+/* ── Columna imágenes ──────────────────────────────────────── */
+.wcard-images-col {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 0;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* Cada slot de imagen — mismo ratio 1:1 que las cards normales */
+.wcard-img-slot {
+  position: relative;
+  flex: 1 1 0;
+  /* Ratio 1:1 sin padding-top para no romper el flex */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #060512;
+}
+
+/* Separador vertical entre las dos imágenes */
+.wcard-img-slot + .wcard-img-slot {
+  border-left: 1px solid rgba(247, 154, 66, 0.1);
+}
+
+.wcard-img-slot a {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.wcard-img-slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+.wcard-img-slot:hover img {
+  transform: scale(1.06);
+}
+.wcard-img-slot:hover .card-hover-overlay {
+  opacity: 1;
+}
+
+/* ── Columna texto / descripción ───────────────────────────── */
+.wcard-text {
+  flex: 0 0 auto;
+  width: clamp(160px, 22%, 260px);
+  display: flex;
+  align-items: center;
+  border-left: 1px solid rgba(247, 154, 66, 0.12);
+  background: rgba(0,0,0,0.12);
+}
+
+.wcard-text .card-info {
+  border-top: none;          /* quitamos el border-top del card-info base */
+  width: 100%;
+}
+
+.wcard-text .card-info h3 {
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  line-height: 1.35;
+}
+
+/* Hover sobre la wide-card ilumina el texto igual que las cards normales */
+.wide-card:hover .wcard-text .card-info h3 {
+  color: #f9b780;
+}
+
+/* ============================================================
+   RESPONSIVE WIDE CARD
+============================================================ */
+
+/* Tablet vertical (768px – 1023px): sigue horizontal pero más compacto */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .wcard-logo-col {
+    width: clamp(120px, 16%, 180px);
+    padding: 14px 10px;
+  }
+  .wcard-text {
+    width: clamp(130px, 20%, 200px);
+  }
+}
+
+/* Móvil (≤ 768px): columna vertical — logo → imágenes → descripción */
+@media (max-width: 768px) {
+  .wide-card {
+    /* Volvemos a permitir que la card tenga hover normal en móvil */
+  }
+
+  .wcard-inner {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  /* Logo arriba, centrado */
+  .wcard-logo-col {
+    width: 100%;
+    padding: 20px 24px 16px;
+    border-right: none;
+    border-bottom: 1px solid rgba(247, 154, 66, 0.15);
+    justify-content: center;
+  }
+  .wcard-logo {
+    max-width: 130px;
+  }
+
+  /* Imágenes en fila (las dos una al lado de la otra como en desktop) */
+  .wcard-images-col {
+    flex-direction: row;
+    width: 100%;
+  }
+  .wcard-img-slot {
+    aspect-ratio: 1 / 1;
+    flex: 1 1 50%;
+  }
+
+  /* Descripción abajo, ancho completo */
+  .wcard-text {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(247, 154, 66, 0.12);
+    padding: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .wcard-text .card-info h3 {
+    font-size: 0.88rem;
+  }
+}
+
+/* Móvil pequeño (≤ 480px) */
+@media (max-width: 480px) {
+  .wcard-logo {
+    max-width: 100px;
+  }
+  .wcard-logo-col {
+    padding: 16px 20px 12px;
+  }
+}
+
+/* ── Texto extra y link dentro de la wide card ────────────────────────────── */
+.wcard-extra-text {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  margin: 6px 0 10px;
+}
+
+.wcard-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #f9b780;
+  text-decoration: none;
+  border: 1px solid rgba(247, 154, 66, 0.35);
+  border-radius: 50px;
+  padding: 5px 14px;
+  transition: background 0.25s ease, border-color 0.25s ease,
+              color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wcard-link:hover {
+  background: rgba(247, 154, 66, 0.12);
+  border-color: #f9b780;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(247, 154, 66, 0.35);
+}
+
+.wcard-link .fa {
+  font-size: 0.72rem;
+}
+
+/* Responsive: móvil */
+@media (max-width: 768px) {
+  .wcard-extra-text {
+    font-size: 0.75rem;
+  }
+  .wcard-link {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+}
